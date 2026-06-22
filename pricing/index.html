@@ -35,11 +35,19 @@
   .nav-links a{color:var(--muted); margin-left:22px; font-size:14px}
   .nav-links a:hover{color:var(--text); text-decoration:none}
 
+  /* Launch banner */
+  .launch-banner{background:linear-gradient(90deg,rgba(239,159,39,0.12) 0%,rgba(239,159,39,0.06) 100%); border-bottom:1px solid rgba(239,159,39,0.3); padding:11px 0; text-align:center; font-size:13px; font-weight:600; color:var(--accent)}
+  .launch-banner span{color:var(--muted); font-weight:400}
+
   /* Hero */
-  .hero{text-align:center; padding:64px 0 28px}
+  .hero{text-align:center; padding:54px 0 28px}
   .hero h1{font-size:40px; font-weight:800; letter-spacing:-0.02em; margin-bottom:12px}
   .hero p{color:var(--muted); font-size:17px; max-width:620px; margin:0 auto}
   .trial-badge{display:inline-block; margin-top:18px; background:rgba(24,95,165,0.15); border:1px solid var(--primary); color:#9cc3ee; border-radius:999px; padding:7px 16px; font-size:13px; font-weight:600}
+
+  /* Price display */
+  .price-old{font-size:15px; font-weight:600; color:var(--muted); text-decoration:line-through; margin-bottom:2px; min-height:20px}
+  .price-save{display:inline-block; background:rgba(22,163,74,0.15); color:#4ade80; border-radius:999px; font-size:11px; font-weight:700; padding:2px 8px; margin-left:6px; vertical-align:middle}
 
   /* How it works */
   .how{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:28px 32px; margin:0 0 36px; display:flex; gap:0; align-items:flex-start; flex-wrap:wrap}
@@ -112,6 +120,10 @@
   </div>
 </header>
 
+<div class="launch-banner">
+  🎉 Early Adopter Offer — Launch pricing, limited time <span>· Prices will increase once code-signing is in place</span>
+</div>
+
 <section class="hero">
   <div class="wrap">
     <h1>Simple, one-time pricing</h1>
@@ -165,9 +177,10 @@
       <div class="tier">Solo</div>
       <div class="blurb">For individuals creating professional step-by-step guides.</div>
       <!-- EDIT PRICE -->
-      <div class="price"><span class="cur">$</span>79</div>
-      <div class="price-note">one-time · 1 seat</div>
-      <a class="btn btn-primary" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Solo%20licence%20purchase&body=Hi%2C%0A%0AI%20would%20like%20to%20purchase%20a%20DocWeave%20Solo%20licence.%0A%0AMy%20Machine%20ID%20(from%20%E2%9A%99%20%E2%86%92%20Licence%20%26%20Account%20in%20the%20app)%3A%0A%0A%5Bpaste%20your%20XXXX-XXXX-XXXX-XXXX%20Machine%20ID%20here%5D%0A%0AThank%20you%21">Buy Solo — $79</a>
+      <div class="price-old">$79</div>
+      <div class="price"><span class="cur">$</span>49 <span class="price-save">Save $30</span></div>
+      <div class="price-note">one-time · 1 seat · launch price</div>
+      <a class="btn btn-primary" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Solo%20licence%20purchase%20%E2%80%94%20%2449%20launch%20price&body=Hi%2C%0A%0AI%20would%20like%20to%20purchase%20a%20DocWeave%20Solo%20licence%20at%20the%20%2449%20launch%20price.%0A%0AMy%20Machine%20ID%20(from%20%E2%9A%99%20%E2%86%92%20Licence%20%26%20Account%20in%20the%20app)%3A%0A%0A%5Bpaste%20your%20XXXX-XXXX-XXXX-XXXX%20Machine%20ID%20here%5D%0A%0AThank%20you%21">Buy Solo — $49</a>
       <ul class="feat">
         <li>HTML, PDF, Markdown &amp; ZIP export</li>
         <li>All 20+ content types (quizzes, video, tables, flowcharts…)</li>
@@ -183,9 +196,10 @@
       <div class="tier">Pro</div>
       <div class="blurb">For professionals who deliver to clients and teams.</div>
       <!-- EDIT PRICE -->
-      <div class="price"><span class="cur">$</span>249</div>
-      <div class="price-note">one-time · 1 seat</div>
-      <a class="btn btn-accent" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Pro%20licence%20purchase&body=Hi%2C%0A%0AI%20would%20like%20to%20purchase%20a%20DocWeave%20Pro%20licence.%0A%0AMy%20Machine%20ID%20(from%20%E2%9A%99%20%E2%86%92%20Licence%20%26%20Account%20in%20the%20app)%3A%0A%0A%5Bpaste%20your%20XXXX-XXXX-XXXX-XXXX%20Machine%20ID%20here%5D%0A%0AThank%20you%21">Buy Pro — $249</a>
+      <div class="price-old">$249</div>
+      <div class="price"><span class="cur">$</span>149 <span class="price-save">Save $100</span></div>
+      <div class="price-note">one-time · 1 seat · launch price</div>
+      <a class="btn btn-accent" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Pro%20licence%20purchase%20%E2%80%94%20%24149%20launch%20price&body=Hi%2C%0A%0AI%20would%20like%20to%20purchase%20a%20DocWeave%20Pro%20licence%20at%20the%20%24149%20launch%20price.%0A%0AMy%20Machine%20ID%20(from%20%E2%9A%99%20%E2%86%92%20Licence%20%26%20Account%20in%20the%20app)%3A%0A%0A%5Bpaste%20your%20XXXX-XXXX-XXXX-XXXX%20Machine%20ID%20here%5D%0A%0AThank%20you%21">Buy Pro — $149</a>
       <ul class="feat">
         <li>Everything in Solo, plus:</li>
         <li><b>Word (.docx)</b> &amp; <b>PowerPoint (.pptx)</b> export</li>
@@ -201,9 +215,10 @@
       <div class="tier">Team</div>
       <div class="blurb">For teams sharing templates and standards.</div>
       <!-- EDIT PRICE -->
-      <div class="price"><span class="cur">$</span>149<span class="per"> / seat</span></div>
-      <div class="price-note">one-time · 2–10 seats</div>
-      <a class="btn btn-primary" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Team%20licence%20purchase&body=Hi%2C%0A%0AI%20would%20like%20to%20purchase%20a%20DocWeave%20Team%20licence.%0A%0ANumber%20of%20seats%3A%20%5Be.g.%205%5D%0A%0AMachine%20IDs%20for%20each%20user%20(from%20%E2%9A%99%20%E2%86%92%20Licence%20%26%20Account%20in%20the%20app)%3A%0A1.%20%5BXXXX-XXXX-XXXX-XXXX%5D%0A2.%20%5BXXXX-XXXX-XXXX-XXXX%5D%0A%0AThank%20you%21">Buy Team — $149/seat</a>
+      <div class="price-old">$149 / seat</div>
+      <div class="price"><span class="cur">$</span>99<span class="per"> / seat</span> <span class="price-save">Save $50</span></div>
+      <div class="price-note">one-time · 2–10 seats · launch price</div>
+      <a class="btn btn-primary" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Team%20licence%20purchase%20%E2%80%94%20%2499%2Fseat%20launch%20price&body=Hi%2C%0A%0AI%20would%20like%20to%20purchase%20a%20DocWeave%20Team%20licence%20at%20the%20%2499%2Fseat%20launch%20price.%0A%0ANumber%20of%20seats%3A%20%5Be.g.%205%5D%0A%0AMachine%20IDs%20for%20each%20user%20(from%20%E2%9A%99%20%E2%86%92%20Licence%20%26%20Account%20in%20the%20app)%3A%0A1.%20%5BXXXX-XXXX-XXXX-XXXX%5D%0A2.%20%5BXXXX-XXXX-XXXX-XXXX%5D%0A%0AThank%20you%21">Buy Team — $99/seat</a>
       <ul class="feat">
         <li>Everything in Pro, plus:</li>
         <li>Up to 10 seats</li>
@@ -238,6 +253,10 @@
 
 <section class="faq">
   <h2>Frequently asked questions</h2>
+  <div class="qa">
+    <h3>How do I pay?</h3>
+    <p>After you email us your Machine ID, we'll reply with a PayPal invoice for the licence amount. Once payment clears, we generate your licence key and email it — usually within a few hours on business days. If you prefer bank transfer or UPI (India), just mention it in your email and we'll arrange it.</p>
+  </div>
   <div class="qa">
     <h3>Is this a subscription?</h3>
     <p>No. DocWeave licences are a one-time purchase and include all updates within the same major version (e.g. all 1.x releases). Major upgrades may be offered at an upgrade price.</p>

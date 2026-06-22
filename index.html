@@ -10,76 +10,369 @@
     --bg:#07090f; --surface:#0d1b2e; --surface2:#16213e;
     --text:#e6edf6; --muted:#8ba0bd; --border:#1e3050;
     --primary:#185FA5; --primary-hi:#2479c9; --accent:#EF9F27;
+    --good:#16a34a;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased}
-  a{color:var(--primary-hi); text-decoration:none}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--primary-hi);text-decoration:none}
   a:hover{text-decoration:underline}
-  .wrap{max-width:1000px; margin:0 auto; padding:0 20px}
-  header{border-bottom:1px solid var(--border)}
-  .nav{display:flex; align-items:center; justify-content:space-between; height:62px}
-  .brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:18px; color:var(--text)}
-  .brand .logo{height:30px; width:auto; border-radius:7px; display:block}
-  .nav-links a{color:var(--muted); margin-left:22px; font-size:14px}
-  .nav-links a:hover{color:var(--text); text-decoration:none}
-  .hero{text-align:center; padding:90px 0 70px}
-  .hero h1{font-size:46px; font-weight:800; letter-spacing:-0.02em; margin-bottom:16px; max-width:760px; margin-left:auto; margin-right:auto}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+
+  /* ── NAV ── */
+  header{border-bottom:1px solid var(--border);background:rgba(7,9,15,0.92);position:sticky;top:0;backdrop-filter:blur(10px);z-index:20}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;color:var(--text)}
+  .brand .logo{height:30px;width:auto;border-radius:7px}
+  .nav-links a{color:var(--muted);margin-left:22px;font-size:14px}
+  .nav-links a:hover{color:var(--text);text-decoration:none}
+  .nav-links .cta-link{background:var(--primary);color:#fff!important;padding:7px 16px;border-radius:7px;font-weight:700}
+  .nav-links .cta-link:hover{opacity:.9}
+
+  /* ── HERO ── */
+  .hero{text-align:center;padding:88px 0 60px}
+  .hero-eyebrow{display:inline-block;background:rgba(239,159,39,0.12);border:1px solid rgba(239,159,39,0.35);color:var(--accent);border-radius:999px;padding:5px 14px;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:22px}
+  .hero h1{font-size:52px;font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:20px;max-width:780px;margin-left:auto;margin-right:auto}
   .hero h1 .hl{color:var(--accent)}
-  .hero p{color:var(--muted); font-size:18px; max-width:600px; margin:0 auto 28px}
-  .cta{display:inline-flex; gap:12px; flex-wrap:wrap; justify-content:center}
-  .btn{display:inline-block; padding:13px 26px; border-radius:9px; font-weight:700; font-size:15px; transition:opacity .15s}
-  .btn:hover{text-decoration:none; opacity:.9}
-  .btn-primary{background:var(--primary); color:#fff}
-  .btn-ghost{background:transparent; color:var(--text); border:1px solid var(--border)}
-  .features{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; padding:30px 0 70px}
-  .f{background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:22px}
-  .f .ic{font-size:22px; margin-bottom:8px}
-  .f h3{font-size:16px; font-weight:700; margin-bottom:5px}
-  .f p{color:var(--muted); font-size:14px}
-  footer{border-top:1px solid var(--border); padding:26px 0 40px; color:var(--muted); font-size:13px}
-  .foot{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px}
-  @media (max-width:780px){ .features{grid-template-columns:1fr} .hero h1{font-size:34px} }
+  .hero p{color:var(--muted);font-size:18px;max-width:580px;margin:0 auto 32px;line-height:1.65}
+  .cta{display:inline-flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:20px}
+  .btn{display:inline-block;padding:13px 28px;border-radius:9px;font-weight:700;font-size:15px;transition:all .15s;text-decoration:none!important}
+  .btn:hover{opacity:.9}
+  .btn-primary{background:var(--primary);color:#fff;box-shadow:0 4px 20px rgba(24,95,165,0.35)}
+  .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+  .hero-sub{color:var(--muted);font-size:13px;margin-top:6px}
+
+  /* ── FOR WHOM ── */
+  .for-whom{padding:12px 0 60px}
+  .for-whom-label{text-align:center;color:var(--muted);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:20px}
+  .personas{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+  .persona{background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:8px 18px;font-size:14px;color:var(--muted)}
+  .persona span{color:var(--text);font-weight:600}
+
+  /* ── SECTION HEADERS ── */
+  .sec-head{text-align:center;margin-bottom:44px}
+  .sec-head h2{font-size:34px;font-weight:800;letter-spacing:-0.02em;margin-bottom:10px}
+  .sec-head p{color:var(--muted);font-size:16px;max-width:540px;margin:0 auto}
+
+  /* ── WORKFLOW ── */
+  .workflow{padding:70px 0}
+  .workflow-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+  .workflow-steps::before{content:"";position:absolute;top:26px;left:calc(12.5% + 14px);right:calc(12.5% + 14px);height:2px;background:linear-gradient(to right,var(--primary),var(--accent));opacity:.4}
+  .ws{text-align:center;padding:0 12px;position:relative}
+  .ws-num{width:52px;height:52px;border-radius:50%;background:var(--surface2);border:2px solid var(--border);color:var(--text);font-size:18px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+  .ws-num.active{background:var(--primary);border-color:var(--primary);box-shadow:0 0 0 4px rgba(24,95,165,0.2)}
+  .ws h4{font-size:15px;font-weight:700;margin-bottom:6px}
+  .ws p{font-size:13px;color:var(--muted);line-height:1.55}
+
+  /* ── FEATURE GRID ── */
+  .features{padding:0 0 70px}
+  .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .f{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px}
+  .f .ic{font-size:26px;margin-bottom:12px}
+  .f h3{font-size:16px;font-weight:700;margin-bottom:8px}
+  .f p{color:var(--muted);font-size:14px;line-height:1.6}
+  .f ul{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:5px}
+  .f ul li{font-size:13px;color:var(--muted);padding-left:16px;position:relative}
+  .f ul li::before{content:"·";position:absolute;left:4px;color:var(--primary-hi)}
+
+  /* ── CONTENT TYPES ── */
+  .content-types{padding:0 0 70px}
+  .ct-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .ct{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;align-items:center;gap:10px}
+  .ct-ic{font-size:18px;flex-shrink:0}
+  .ct-name{font-size:13px;font-weight:600;color:var(--text)}
+  .ct-tag{font-size:11px;color:var(--muted)}
+
+  /* ── EXPORTS ── */
+  .exports{padding:0 0 70px}
+  .export-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:8px}
+  .ex{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 22px;display:flex;flex-direction:column;align-items:center;gap:6px;min-width:110px}
+  .ex-ic{font-size:24px}
+  .ex-name{font-size:13px;font-weight:700}
+  .ex-desc{font-size:11px;color:var(--muted);text-align:center}
+
+  /* ── SECURITY / PRIVACY ── */
+  .trust{padding:0 0 70px}
+  .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .tr{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px}
+  .tr h4{font-size:15px;font-weight:700;margin-bottom:6px}
+  .tr p{font-size:13px;color:var(--muted);line-height:1.6}
+
+  /* ── PRICING CTA ── */
+  .pricing-cta{background:linear-gradient(135deg,var(--surface) 0%,var(--surface2) 100%);border:1px solid var(--border);border-radius:20px;padding:56px 40px;text-align:center;margin-bottom:70px}
+  .pricing-cta h2{font-size:32px;font-weight:800;letter-spacing:-0.02em;margin-bottom:12px}
+  .pricing-cta p{color:var(--muted);font-size:16px;max-width:480px;margin:0 auto 28px}
+  .early-badge{display:inline-block;background:rgba(239,159,39,0.15);border:1px solid rgba(239,159,39,0.4);color:var(--accent);border-radius:999px;padding:5px 14px;font-size:12px;font-weight:700;letter-spacing:0.4px;text-transform:uppercase;margin-bottom:20px}
+
+  /* ── FOOTER ── */
+  footer{border-top:1px solid var(--border);padding:28px 0 44px;color:var(--muted);font-size:13px}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:860px){
+    .hero h1{font-size:38px}
+    .feat-grid{grid-template-columns:1fr 1fr}
+    .ct-grid{grid-template-columns:repeat(3,1fr)}
+    .trust-grid{grid-template-columns:1fr 1fr}
+    .workflow-steps{grid-template-columns:1fr 1fr;gap:24px}
+    .workflow-steps::before{display:none}
+    .ws-num.active{background:var(--primary)}
+  }
+  @media(max-width:580px){
+    .hero h1{font-size:30px}
+    .feat-grid{grid-template-columns:1fr}
+    .ct-grid{grid-template-columns:1fr 1fr}
+    .trust-grid{grid-template-columns:1fr}
+    .workflow-steps{grid-template-columns:1fr}
+    .nav-links .cta-link{display:none}
+  }
 </style>
 </head>
 <body>
 
+<!-- ── NAV ── -->
 <header>
   <div class="wrap nav">
     <a class="brand" href="index.html"><img src="docweave.png" class="logo" alt="DocWeave logo"/> DocWeave</a>
     <nav class="nav-links">
       <a href="pricing/index.html">Pricing</a>
       <a href="mailto:support@doc-weave.co.in">Support</a>
+      <!-- EDIT: swap mailto for your public GitHub releases URL -->
+      <a class="cta-link" href="mailto:support@doc-weave.co.in?subject=DocWeave%20download%20request">Download free trial</a>
     </nav>
   </div>
 </header>
 
+<!-- ── HERO ── -->
 <section class="hero">
   <div class="wrap">
-    <h1>Annotated screenshots into <span class="hl">polished training documents</span></h1>
-    <p>DocWeave is a Windows desktop app for building step-by-step SOPs, runbooks, and training guides — then exporting to PDF, HTML, Word, PowerPoint, Markdown, and more.</p>
+    <div class="hero-eyebrow">Windows Desktop App · One-time price · No subscription</div>
+    <h1>Turn annotated screenshots into <span class="hl">polished training documents</span></h1>
+    <p>Capture, annotate, and assemble step-by-step SOPs, runbooks, and training guides — then export to PDF, Word, PowerPoint, HTML, and more in one click.</p>
     <div class="cta">
-      <!-- EDIT: swap this href for your GitHub releases URL, e.g. https://github.com/YOUR_USER/docweave/releases/latest -->
+      <!-- EDIT: swap mailto for your public GitHub releases URL -->
       <a class="btn btn-primary" href="mailto:support@doc-weave.co.in?subject=DocWeave%20download%20request">Download free trial</a>
-      <a class="btn btn-ghost" href="pricing/index.html">See pricing</a>
+      <a class="btn btn-ghost" href="pricing/index.html">See pricing →</a>
+    </div>
+    <div class="hero-sub">Free for 15 days · No card · No account · Windows 10/11</div>
+  </div>
+</section>
+
+<!-- ── FOR WHOM ── -->
+<section class="for-whom">
+  <div class="wrap">
+    <div class="for-whom-label">Built for professionals who document processes</div>
+    <div class="personas">
+      <div class="persona"><span>IT Trainers</span> writing system SOPs</div>
+      <div class="persona"><span>Pharma &amp; QA teams</span> authoring controlled procedures</div>
+      <div class="persona"><span>MSPs &amp; IT consultants</span> delivering client runbooks</div>
+      <div class="persona"><span>L&amp;D professionals</span> building onboarding guides</div>
+      <div class="persona"><span>Operations teams</span> standardising workflows</div>
     </div>
   </div>
 </section>
 
+<!-- ── WORKFLOW ── -->
+<section class="workflow">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>From screenshot to polished document — fast</h2>
+      <p>DocWeave handles the entire authoring pipeline in one app. No stitching tools together.</p>
+    </div>
+    <div class="workflow-steps">
+      <div class="ws">
+        <div class="ws-num active">1</div>
+        <h4>Capture</h4>
+        <p>Region, window, full-screen, or automatic scroll capture — with a global hotkey that works from any app.</p>
+      </div>
+      <div class="ws">
+        <div class="ws-num active">2</div>
+        <h4>Annotate</h4>
+        <p>Add numbered callouts, arrows, blur, redaction, spotlight, and text boxes directly on each screenshot.</p>
+      </div>
+      <div class="ws">
+        <div class="ws-num active">3</div>
+        <h4>Assemble</h4>
+        <p>Drag-drop your steps, add quizzes, tables, notes, flowcharts, and more — all in one document.</p>
+      </div>
+      <div class="ws">
+        <div class="ws-num active">4</div>
+        <h4>Export</h4>
+        <p>One-click export to PDF, Word, HTML, PowerPoint, Markdown, or ZIP — branded, polished, ready to share.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURES ── -->
+<section class="features">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Everything you need to document processes professionally</h2>
+      <p>No plugins, no cloud account, no fragmented toolchain — it's all here.</p>
+    </div>
+    <div class="feat-grid">
+
+      <div class="f">
+        <div class="ic">📷</div>
+        <h3>Advanced screen capture</h3>
+        <p>Capture exactly what you need — region, window, full-screen, or long-page scroll capture.</p>
+        <ul>
+          <li>Global hotkey works from any application</li>
+          <li>Automatic SOP recorder captures steps as you work</li>
+          <li>Crop, resize, and re-capture without leaving DocWeave</li>
+        </ul>
+      </div>
+
+      <div class="f">
+        <div class="ic">✏️</div>
+        <h3>Professional annotation</h3>
+        <p>Mark up screenshots with the precision a technical audience expects.</p>
+        <ul>
+          <li>Numbered callouts, arrows, and highlight boxes</li>
+          <li>Blur &amp; redaction for sensitive information</li>
+          <li>Spotlight overlay to focus attention</li>
+          <li>Non-destructive — original image always preserved</li>
+        </ul>
+      </div>
+
+      <div class="f">
+        <div class="ic">🧩</div>
+        <h3>20+ content block types</h3>
+        <p>Go beyond screenshots. Build rich, interactive documents with specialised content blocks.</p>
+        <ul>
+          <li>Quizzes, checklists, data tables, tabbed panels</li>
+          <li>Flowcharts, timelines, RACI matrices, TNA tables</li>
+          <li>Video embeds, key takeaways, warnings &amp; notes</li>
+        </ul>
+      </div>
+
+      <div class="f">
+        <div class="ic">📤</div>
+        <h3>Multi-format export</h3>
+        <p>One document, many outputs. Every format is self-contained and ready to share.</p>
+        <ul>
+          <li>PDF (print-ready), HTML (interactive, offline)</li>
+          <li>Word .docx, PowerPoint .pptx, Markdown</li>
+          <li>ZIP bundle with all assets</li>
+          <li>Light and dark themes per export</li>
+        </ul>
+      </div>
+
+      <div class="f">
+        <div class="ic">🎨</div>
+        <h3>Custom branding</h3>
+        <p>Every export reflects your organisation — not DocWeave's defaults.</p>
+        <ul>
+          <li>Upload your logo — applied to all exports</li>
+          <li>Custom accent colours and document themes</li>
+          <li>Draft watermarks for in-review documents</li>
+          <li>Export profiles: save one-click settings per client</li>
+        </ul>
+      </div>
+
+      <div class="f">
+        <div class="ic">⚡</div>
+        <h3>Productivity tools</h3>
+        <p>Built for people who document processes at volume — not occasionally.</p>
+        <ul>
+          <li>Step library: reuse common steps across projects</li>
+          <li>Find &amp; replace across the entire document</li>
+          <li>Bulk import images to create steps instantly</li>
+          <li>Inline type-convert: change any content block type</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTENT TYPES ── -->
+<section class="content-types">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>20+ content block types in one document</h2>
+      <p>Mix and match any content type in a single SOP or training guide.</p>
+    </div>
+    <div class="ct-grid">
+      <div class="ct"><div class="ct-ic">🖼️</div><div><div class="ct-name">Screen Paste</div><div class="ct-tag">Annotated screenshot</div></div></div>
+      <div class="ct"><div class="ct-ic">❓</div><div><div class="ct-name">Quiz Block</div><div class="ct-tag">Multiple choice</div></div></div>
+      <div class="ct"><div class="ct-ic">✅</div><div><div class="ct-name">Checklist</div><div class="ct-tag">Actionable steps</div></div></div>
+      <div class="ct"><div class="ct-ic">📊</div><div><div class="ct-name">Data Table</div><div class="ct-tag">Structured data</div></div></div>
+      <div class="ct"><div class="ct-ic">🔀</div><div><div class="ct-name">Flowchart</div><div class="ct-tag">Decision trees</div></div></div>
+      <div class="ct"><div class="ct-ic">📅</div><div><div class="ct-name">Timeline</div><div class="ct-tag">Phase-by-phase</div></div></div>
+      <div class="ct"><div class="ct-ic">🎬</div><div><div class="ct-name">Video Embed</div><div class="ct-tag">YouTube / local</div></div></div>
+      <div class="ct"><div class="ct-ic">📑</div><div><div class="ct-name">Tabbed Block</div><div class="ct-tag">Organised sections</div></div></div>
+      <div class="ct"><div class="ct-ic">⚠️</div><div><div class="ct-name">Warning / Note</div><div class="ct-tag">Alerts &amp; callouts</div></div></div>
+      <div class="ct"><div class="ct-ic">💡</div><div><div class="ct-name">Key Takeaways</div><div class="ct-tag">Summary block</div></div></div>
+      <div class="ct"><div class="ct-ic">👥</div><div><div class="ct-name">RACI Matrix</div><div class="ct-tag">Roles &amp; ownership</div></div></div>
+      <div class="ct"><div class="ct-ic">📝</div><div><div class="ct-name">Rich Text</div><div class="ct-tag">Formatted notes</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPORTS ── -->
+<section class="exports">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Export to whatever format your audience needs</h2>
+      <p>Write once, export anywhere. Every format is standalone — no DocWeave needed to view it.</p>
+    </div>
+    <div class="export-row">
+      <div class="ex"><div class="ex-ic">📄</div><div class="ex-name">PDF</div><div class="ex-desc">Print-ready, bookmarked</div></div>
+      <div class="ex"><div class="ex-ic">🌐</div><div class="ex-name">HTML</div><div class="ex-desc">Interactive, offline</div></div>
+      <div class="ex"><div class="ex-ic">📝</div><div class="ex-name">Word</div><div class="ex-desc">.docx, editable</div></div>
+      <div class="ex"><div class="ex-ic">📊</div><div class="ex-name">PowerPoint</div><div class="ex-desc">.pptx, one step per slide</div></div>
+      <div class="ex"><div class="ex-ic">⬇️</div><div class="ex-name">Markdown</div><div class="ex-desc">Confluence, Notion, GitHub</div></div>
+      <div class="ex"><div class="ex-ic">🗜️</div><div class="ex-name">ZIP</div><div class="ex-desc">All assets bundled</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRUST ── -->
+<section class="trust">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Local, private, and under your control</h2>
+      <p>No cloud sync, no account, no subscription — your documents never leave your machine.</p>
+    </div>
+    <div class="trust-grid">
+      <div class="tr">
+        <h4>🔒 Fully offline</h4>
+        <p>DocWeave runs entirely on your Windows PC. Your screenshots, projects, and exports never leave your machine. No internet connection required after installation.</p>
+      </div>
+      <div class="tr">
+        <h4>🛡️ No account needed</h4>
+        <p>Download, install, and start building immediately. There is no login, no cloud account, and no data collection. The 15-day trial starts on first run.</p>
+      </div>
+      <div class="tr">
+        <h4>♾️ Pay once, own forever</h4>
+        <p>A one-time licence includes all updates within the same major version. No subscription, no price hikes, no features locked behind a paywall you already paid for.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING CTA ── -->
 <section class="wrap">
-  <div class="features">
-    <div class="f"><div class="ic">📷</div><h3>Capture &amp; annotate</h3><p>Region, window, and scroll capture with numbered steps, arrows, blur, and redaction.</p></div>
-    <div class="f"><div class="ic">🧩</div><h3>20+ content types</h3><p>Quizzes, video, data tables, checklists, flowcharts, RACI matrices, timelines, and more.</p></div>
-    <div class="f"><div class="ic">📤</div><h3>Export anywhere</h3><p>PDF, interactive HTML, Word, PowerPoint, Markdown, and ZIP — light or dark themes.</p></div>
-    <div class="f"><div class="ic">🔒</div><h3>Local &amp; private</h3><p>Your projects never leave your machine. No cloud account, no tracking.</p></div>
-    <div class="f"><div class="ic">🎨</div><h3>On-brand output</h3><p>Custom logo, colours, and watermarks so every document looks like yours.</p></div>
-    <div class="f"><div class="ic">⚡</div><h3>One-time price</h3><p>Buy once, no subscription. <a href="pricing/index.html">See pricing →</a></p></div>
+  <div class="pricing-cta">
+    <div class="early-badge">🎉 Early Adopter Offer — Limited time</div>
+    <h2>Start free. Upgrade when you're convinced.</h2>
+    <p>Download DocWeave and use every feature for 15 days — no card, no account. If it saves you time, pick a plan that fits.</p>
+    <div class="cta">
+      <!-- EDIT: swap mailto for your public GitHub releases URL -->
+      <a class="btn btn-primary" href="mailto:support@doc-weave.co.in?subject=DocWeave%20download%20request">Download free trial</a>
+      <a class="btn btn-ghost" href="pricing/index.html">View pricing →</a>
+    </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap foot">
     <div>© <span id="yr"></span> DocWeave. All rights reserved.</div>
-    <div><a href="pricing/index.html">Pricing</a> &nbsp;·&nbsp; <a href="mailto:support@doc-weave.co.in">support@doc-weave.co.in</a></div>
+    <div>
+      <a href="pricing/index.html">Pricing</a> &nbsp;·&nbsp;
+      <a href="mailto:support@doc-weave.co.in">support@doc-weave.co.in</a>
+    </div>
   </div>
 </footer>
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
