@@ -4,12 +4,11 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Pricing — DocWeave</title>
-<meta name="description" content="DocWeave pricing — turn annotated screenshots into polished training documents. Solo, Pro, Team, and Enterprise licences."/>
+<meta name="description" content="DocWeave pricing — one-time lifetime licence or flexible annual subscription. Solo, Pro, Team, and Enterprise plans."/>
 <style>
   /* ─────────────────────────────────────────────────────────────
-     EDIT PRICES: search for "EDIT" below. Currency + numbers are the
-     only things you normally need to change. Everything is one file,
-     no external dependencies (loads instantly, no tracking).
+     EDIT PRICES: search for "EDIT PRICE" below. Each card has two
+     blocks: .annual-price and .lifetime-price. Change numbers in both.
      ───────────────────────────────────────────────────────────── */
   :root{
     --bg:#07090f; --surface:#0d1b2e; --surface2:#16213e;
@@ -23,88 +22,96 @@
     font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
     line-height:1.55; -webkit-font-smoothing:antialiased;
   }
-  a{color:var(--primary-hi); text-decoration:none}
+  a{color:var(--primary-hi);text-decoration:none}
   a:hover{text-decoration:underline}
-  .wrap{max-width:1100px; margin:0 auto; padding:0 20px}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
 
-  /* Header */
-  header{border-bottom:1px solid var(--border); background:rgba(7,9,15,0.9); position:sticky; top:0; backdrop-filter:blur(8px); z-index:10}
-  .nav{display:flex; align-items:center; justify-content:space-between; height:62px}
-  .brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:18px; color:var(--text)}
-  .brand .logo{height:30px; width:auto; border-radius:7px; display:block}
-  .nav-links a{color:var(--muted); margin-left:22px; font-size:14px}
-  .nav-links a:hover{color:var(--text); text-decoration:none}
+  /* ── NAV ── */
+  header{border-bottom:1px solid var(--border);background:rgba(7,9,15,0.9);position:sticky;top:0;backdrop-filter:blur(8px);z-index:10}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;color:var(--text)}
+  .brand .logo{height:30px;width:auto;border-radius:7px;display:block}
+  .nav-links a{color:var(--muted);margin-left:22px;font-size:14px}
+  .nav-links a:hover{color:var(--text);text-decoration:none}
 
-  /* Launch banner */
-  .launch-banner{background:linear-gradient(90deg,rgba(239,159,39,0.12) 0%,rgba(239,159,39,0.06) 100%); border-bottom:1px solid rgba(239,159,39,0.3); padding:11px 0; text-align:center; font-size:13px; font-weight:600; color:var(--accent)}
-  .launch-banner span{color:var(--muted); font-weight:400}
+  /* ── LAUNCH BANNER ── */
+  .launch-banner{background:linear-gradient(90deg,rgba(239,159,39,0.12),rgba(239,159,39,0.06));border-bottom:1px solid rgba(239,159,39,0.3);padding:11px 0;text-align:center;font-size:13px;font-weight:600;color:var(--accent)}
+  .launch-banner span{color:var(--muted);font-weight:400}
 
-  /* Hero */
-  .hero{text-align:center; padding:54px 0 28px}
-  .hero h1{font-size:40px; font-weight:800; letter-spacing:-0.02em; margin-bottom:12px}
-  .hero p{color:var(--muted); font-size:17px; max-width:620px; margin:0 auto}
-  .trial-badge{display:inline-block; margin-top:18px; background:rgba(24,95,165,0.15); border:1px solid var(--primary); color:#9cc3ee; border-radius:999px; padding:7px 16px; font-size:13px; font-weight:600}
+  /* ── HERO ── */
+  .hero{text-align:center;padding:54px 0 22px}
+  .hero h1{font-size:40px;font-weight:800;letter-spacing:-0.02em;margin-bottom:12px}
+  .hero p{color:var(--muted);font-size:17px;max-width:620px;margin:0 auto}
+  .trial-badge{display:inline-block;margin-top:18px;background:rgba(24,95,165,0.15);border:1px solid var(--primary);color:#9cc3ee;border-radius:999px;padding:7px 16px;font-size:13px;font-weight:600}
 
-  /* Price display */
-  .price-old{font-size:15px; font-weight:600; color:var(--muted); text-decoration:line-through; margin-bottom:2px; min-height:20px}
-  .price-save{display:inline-block; background:rgba(22,163,74,0.15); color:#4ade80; border-radius:999px; font-size:11px; font-weight:700; padding:2px 8px; margin-left:6px; vertical-align:middle}
+  /* ── BILLING TOGGLE ── */
+  .toggle-wrap{display:flex;justify-content:center;align-items:center;gap:14px;padding:28px 0 6px}
+  .toggle{display:flex;background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:4px}
+  .toggle-btn{padding:8px 22px;border-radius:999px;font-size:14px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--muted);transition:all .2s}
+  .toggle-btn.active{background:var(--primary);color:#fff}
+  .toggle-save{background:rgba(22,163,74,0.15);color:#4ade80;border-radius:999px;font-size:12px;font-weight:700;padding:4px 12px;white-space:nowrap}
 
-  /* How it works */
-  .how{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:28px 32px; margin:0 0 36px; display:flex; gap:0; align-items:flex-start; flex-wrap:wrap}
-  .how-title{font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:18px; width:100%}
-  .step{flex:1; min-width:180px; display:flex; gap:12px; align-items:flex-start; padding:0 16px 0 0}
+  /* ── PRICE DISPLAY ── */
+  .price-old{font-size:15px;font-weight:600;color:var(--muted);text-decoration:line-through;margin-bottom:2px;min-height:20px}
+  .price{font-size:34px;font-weight:800;letter-spacing:-0.02em}
+  .price .cur{font-size:18px;font-weight:700;color:var(--muted);vertical-align:super}
+  .price .per{font-size:13px;font-weight:600;color:var(--muted)}
+  .price-save{display:inline-block;background:rgba(22,163,74,0.15);color:#4ade80;border-radius:999px;font-size:11px;font-weight:700;padding:2px 8px;margin-left:4px;vertical-align:middle}
+  .price-note{color:var(--muted);font-size:12px;margin-top:4px;min-height:18px}
+  .annual-price{display:none}
+  .lifetime-price{display:block}
+  body.show-annual .annual-price{display:block}
+  body.show-annual .lifetime-price{display:none}
+
+  /* ── HOW IT WORKS ── */
+  .how{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px 32px;margin:28px 0 36px;display:flex;gap:0;align-items:flex-start;flex-wrap:wrap}
+  .how-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:var(--muted);margin-bottom:18px;width:100%}
+  .step{flex:1;min-width:180px;display:flex;gap:12px;align-items:flex-start;padding:0 16px 0 0}
   .step:last-child{padding-right:0}
-  .step-num{width:28px; height:28px; border-radius:50%; background:var(--primary); color:#fff; font-size:13px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px}
-  .step-body h4{font-size:14px; font-weight:700; margin-bottom:3px}
-  .step-body p{font-size:13px; color:var(--muted); line-height:1.5}
-  .step-arrow{color:var(--border); font-size:20px; padding-top:4px; flex-shrink:0; align-self:center}
-  @media(max-width:680px){.step{min-width:100%; padding:0 0 16px}.step-arrow{display:none}}
+  .step-num{width:28px;height:28px;border-radius:50%;background:var(--primary);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+  .step-body h4{font-size:14px;font-weight:700;margin-bottom:3px}
+  .step-body p{font-size:13px;color:var(--muted);line-height:1.5}
+  .step-arrow{color:var(--border);font-size:20px;padding-top:4px;flex-shrink:0;align-self:center}
+  @media(max-width:680px){.step{min-width:100%;padding:0 0 16px}.step-arrow{display:none}}
 
-  /* Pricing grid */
-  .grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; padding:0 0 10px; align-items:start}
-  .card{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:26px 22px; display:flex; flex-direction:column; min-height:520px; position:relative}
-  .card.popular{border-color:var(--accent); box-shadow:0 0 0 1px var(--accent), 0 12px 40px rgba(239,159,39,0.12)}
-  .pop-tag{position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--accent); color:#1a1208; font-size:11px; font-weight:800; letter-spacing:0.5px; text-transform:uppercase; padding:4px 12px; border-radius:999px}
-  .tier{font-size:18px; font-weight:700}
-  .blurb{color:var(--muted); font-size:13px; margin:6px 0 16px; min-height:38px}
-  .price{font-size:34px; font-weight:800; letter-spacing:-0.02em}
-  .price .cur{font-size:18px; font-weight:700; color:var(--muted); vertical-align:super}
-  .price .per{font-size:13px; font-weight:600; color:var(--muted)}
-  .price-note{color:var(--muted); font-size:12px; margin-top:4px; min-height:18px}
-  .btn{display:block; text-align:center; margin:20px 0 18px; padding:11px 14px; border-radius:8px; font-weight:700; font-size:14px; cursor:pointer; transition:opacity .15s}
-  .btn:hover{text-decoration:none; opacity:0.9}
-  .btn-primary{background:var(--primary); color:#fff}
-  .btn-accent{background:var(--accent); color:#1a1208}
-  .btn-ghost{background:transparent; color:var(--text); border:1px solid var(--border)}
-  .feat{list-style:none; display:flex; flex-direction:column; gap:9px; font-size:13.5px}
-  .feat li{display:flex; gap:9px; align-items:flex-start; color:#cdd9e8}
-  .feat li::before{content:"✓"; color:var(--good); font-weight:800; flex-shrink:0}
-  .feat li.dim{color:var(--muted)}
-  .feat li.dim::before{content:"—"; color:var(--border)}
-  .feat .head{font-weight:700; color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:0.6px; margin-top:6px}
+  /* ── GRID & CARDS ── */
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:0 0 10px;align-items:start}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:26px 22px;display:flex;flex-direction:column;min-height:520px;position:relative}
+  .card.popular{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 12px 40px rgba(239,159,39,0.12)}
+  .pop-tag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:#1a1208;font-size:11px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;padding:4px 12px;border-radius:999px}
+  .tier{font-size:18px;font-weight:700}
+  .blurb{color:var(--muted);font-size:13px;margin:6px 0 16px;min-height:38px}
+  .btn{display:block;text-align:center;margin:20px 0 18px;padding:11px 14px;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;transition:opacity .15s;text-decoration:none!important}
+  .btn:hover{opacity:0.9}
+  .btn-primary{background:var(--primary);color:#fff}
+  .btn-accent{background:var(--accent);color:#1a1208}
+  .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+  .feat{list-style:none;display:flex;flex-direction:column;gap:9px;font-size:13.5px}
+  .feat li{display:flex;gap:9px;align-items:flex-start;color:#cdd9e8}
+  .feat li::before{content:"✓";color:var(--good);font-weight:800;flex-shrink:0}
+  .feat .head{font-weight:700;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:0.6px;margin-top:6px}
   .feat .head::before{content:""}
 
-  /* Machine ID callout */
-  .mid-note{background:rgba(24,95,165,0.08); border:1px solid var(--border); border-radius:10px; padding:14px 18px; margin:28px 0 4px; font-size:13px; color:var(--muted); line-height:1.6}
+  /* ── ANNUAL NOTE ── */
+  .annual-note{display:none;background:rgba(22,163,74,0.06);border:1px solid rgba(22,163,74,0.2);border-radius:10px;padding:14px 18px;margin:0 0 28px;font-size:13px;color:var(--muted);line-height:1.6}
+  .annual-note strong{color:#4ade80}
+  body.show-annual .annual-note{display:block}
+
+  /* ── MACHINE ID NOTE ── */
+  .mid-note{background:rgba(24,95,165,0.08);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin:28px 0 4px;font-size:13px;color:var(--muted);line-height:1.6}
   .mid-note strong{color:var(--text)}
 
-  /* FAQ + footer */
-  .faq{padding:46px 0 10px; max-width:760px; margin:0 auto}
-  .faq h2{font-size:24px; font-weight:800; text-align:center; margin-bottom:22px}
-  .qa{border-top:1px solid var(--border); padding:16px 0}
-  .qa h3{font-size:15px; font-weight:700; margin-bottom:5px}
-  .qa p{color:var(--muted); font-size:14px}
-  footer{border-top:1px solid var(--border); margin-top:48px; padding:26px 0 40px; color:var(--muted); font-size:13px}
-  .foot{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px}
+  /* ── FAQ & FOOTER ── */
+  .faq{padding:46px 0 10px;max-width:760px;margin:0 auto}
+  .faq h2{font-size:24px;font-weight:800;text-align:center;margin-bottom:22px}
+  .qa{border-top:1px solid var(--border);padding:16px 0}
+  .qa h3{font-size:15px;font-weight:700;margin-bottom:5px}
+  .qa p{color:var(--muted);font-size:14px}
+  footer{border-top:1px solid var(--border);margin-top:48px;padding:26px 0 40px;color:var(--muted);font-size:13px}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
-  @media (max-width:880px){
-    .grid{grid-template-columns:1fr 1fr}
-    .hero h1{font-size:32px}
-  }
-  @media (max-width:560px){
-    .grid{grid-template-columns:1fr}
-    .nav-links a:first-child{display:none}
-  }
+  @media(max-width:880px){.grid{grid-template-columns:1fr 1fr}.hero h1{font-size:32px}}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}.nav-links a:first-child{display:none}}
 </style>
 </head>
 <body>
@@ -126,13 +133,27 @@
 
 <section class="hero">
   <div class="wrap">
-    <h1>Simple, one-time pricing</h1>
-    <p>Turn annotated screenshots into polished training documents, SOPs, and runbooks. Pay once — no subscription. Includes all 1.x updates.</p>
+    <h1>Simple, transparent pricing</h1>
+    <p>Pay once for a lifetime licence, or subscribe annually and always stay on the latest major version.</p>
     <div class="trial-badge">✨ Every download starts with a free, fully-featured 15-day trial — no card, no signup</div>
   </div>
 </section>
 
+<!-- ── BILLING TOGGLE ── -->
+<div class="toggle-wrap">
+  <div class="toggle">
+    <button class="toggle-btn active" id="btn-lifetime" onclick="setBilling('lifetime')">Lifetime</button>
+    <button class="toggle-btn" id="btn-annual" onclick="setBilling('annual')">Annual</button>
+  </div>
+  <div class="toggle-save" id="annual-saving" style="display:none">All major versions · cancel anytime</div>
+</div>
+
 <section class="wrap">
+
+  <!-- Annual plan note -->
+  <div class="annual-note">
+    <strong>Annual subscription</strong> — includes all major version upgrades (1.x, 2.x, 3.x…) for as long as you subscribe. Keys are re-issued each year at renewal. Cancel anytime; your current key remains valid until it expires.
+  </div>
 
   <!-- How it works -->
   <div class="how">
@@ -157,7 +178,7 @@
       <div class="step-num">3</div>
       <div class="step-body">
         <h4>Receive your key</h4>
-        <p>We generate a licence key locked to your machine and email it to you — usually within a few hours.</p>
+        <p>We generate a licence key locked to your machine and email it — usually within a few hours on business days.</p>
       </div>
     </div>
     <div class="step-arrow">›</div>
@@ -172,15 +193,27 @@
 
   <div class="grid">
 
-    <!-- SOLO -->
+    <!-- ══ SOLO ══ -->
     <div class="card">
       <div class="tier">Solo</div>
       <div class="blurb">For individuals creating professional step-by-step guides.</div>
-      <!-- EDIT PRICE -->
-      <div class="price-old">$79</div>
-      <div class="price"><span class="cur">$</span>49 <span class="price-save">Save $30</span></div>
-      <div class="price-note">one-time · 1 seat · launch price</div>
-      <a class="btn btn-primary" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Solo%20licence%20purchase%20%E2%80%94%20%2449%20launch%20price&body=Hi%2C%0A%0AI%20would%20like%20to%20purchase%20a%20DocWeave%20Solo%20licence%20at%20the%20%2449%20launch%20price.%0A%0AMy%20Machine%20ID%20(from%20%E2%9A%99%20%E2%86%92%20Licence%20%26%20Account%20in%20the%20app)%3A%0A%0A%5Bpaste%20your%20XXXX-XXXX-XXXX-XXXX%20Machine%20ID%20here%5D%0A%0AThank%20you%21">Buy Solo — $49</a>
+
+      <!-- EDIT PRICE — LIFETIME -->
+      <div class="lifetime-price">
+        <div class="price-old">$79</div>
+        <div class="price"><span class="cur">$</span>49 <span class="price-save">Save $30</span></div>
+        <div class="price-note">one-time · 1 seat · launch price · all 1.x updates</div>
+        <a class="btn btn-primary" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Solo%20Lifetime%20%E2%80%94%20%2449%20launch%20price&body=Hi%2C%0A%0AI%20would%20like%20to%20purchase%20a%20DocWeave%20Solo%20Lifetime%20licence%20at%20the%20%2449%20launch%20price.%0A%0AMy%20Machine%20ID%20(from%20%E2%9A%99%20%E2%86%92%20Licence%20%26%20Account%20in%20the%20app)%3A%0A%0A%5Bpaste%20your%20XXXX-XXXX-XXXX-XXXX%20Machine%20ID%20here%5D%0A%0AThank%20you%21">Buy Solo — $49</a>
+      </div>
+
+      <!-- EDIT PRICE — ANNUAL -->
+      <div class="annual-price">
+        <div class="price-old">$39/yr</div>
+        <div class="price"><span class="cur">$</span>24<span class="per">/yr</span> <span class="price-save">Save $15</span></div>
+        <div class="price-note">billed annually · 1 seat · launch price · all major versions</div>
+        <a class="btn btn-primary" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Solo%20Annual%20%E2%80%94%20%2424%2Fyr%20launch%20price&body=Hi%2C%0A%0AI%20would%20like%20to%20subscribe%20to%20DocWeave%20Solo%20Annual%20at%20the%20%2424%2Fyr%20launch%20price.%0A%0AMy%20Machine%20ID%20(from%20%E2%9A%99%20%E2%86%92%20Licence%20%26%20Account%20in%20the%20app)%3A%0A%0A%5Bpaste%20your%20XXXX-XXXX-XXXX-XXXX%20Machine%20ID%20here%5D%0A%0AThank%20you%21">Subscribe Solo — $24/yr</a>
+      </div>
+
       <ul class="feat">
         <li>HTML, PDF, Markdown &amp; ZIP export</li>
         <li>All 20+ content types (quizzes, video, tables, flowcharts…)</li>
@@ -190,16 +223,28 @@
       </ul>
     </div>
 
-    <!-- PRO -->
+    <!-- ══ PRO ══ -->
     <div class="card popular">
       <div class="pop-tag">Most popular</div>
       <div class="tier">Pro</div>
       <div class="blurb">For professionals who deliver to clients and teams.</div>
-      <!-- EDIT PRICE -->
-      <div class="price-old">$249</div>
-      <div class="price"><span class="cur">$</span>149 <span class="price-save">Save $100</span></div>
-      <div class="price-note">one-time · 1 seat · launch price</div>
-      <a class="btn btn-accent" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Pro%20licence%20purchase%20%E2%80%94%20%24149%20launch%20price&body=Hi%2C%0A%0AI%20would%20like%20to%20purchase%20a%20DocWeave%20Pro%20licence%20at%20the%20%24149%20launch%20price.%0A%0AMy%20Machine%20ID%20(from%20%E2%9A%99%20%E2%86%92%20Licence%20%26%20Account%20in%20the%20app)%3A%0A%0A%5Bpaste%20your%20XXXX-XXXX-XXXX-XXXX%20Machine%20ID%20here%5D%0A%0AThank%20you%21">Buy Pro — $149</a>
+
+      <!-- EDIT PRICE — LIFETIME -->
+      <div class="lifetime-price">
+        <div class="price-old">$249</div>
+        <div class="price"><span class="cur">$</span>149 <span class="price-save">Save $100</span></div>
+        <div class="price-note">one-time · 1 seat · launch price · all 1.x updates</div>
+        <a class="btn btn-accent" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Pro%20Lifetime%20%E2%80%94%20%24149%20launch%20price&body=Hi%2C%0A%0AI%20would%20like%20to%20purchase%20a%20DocWeave%20Pro%20Lifetime%20licence%20at%20the%20%24149%20launch%20price.%0A%0AMy%20Machine%20ID%20(from%20%E2%9A%99%20%E2%86%92%20Licence%20%26%20Account%20in%20the%20app)%3A%0A%0A%5Bpaste%20your%20XXXX-XXXX-XXXX-XXXX%20Machine%20ID%20here%5D%0A%0AThank%20you%21">Buy Pro — $149</a>
+      </div>
+
+      <!-- EDIT PRICE — ANNUAL -->
+      <div class="annual-price">
+        <div class="price-old">$99/yr</div>
+        <div class="price"><span class="cur">$</span>59<span class="per">/yr</span> <span class="price-save">Save $40</span></div>
+        <div class="price-note">billed annually · 1 seat · launch price · all major versions</div>
+        <a class="btn btn-accent" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Pro%20Annual%20%E2%80%94%20%2459%2Fyr%20launch%20price&body=Hi%2C%0A%0AI%20would%20like%20to%20subscribe%20to%20DocWeave%20Pro%20Annual%20at%20the%20%2459%2Fyr%20launch%20price.%0A%0AMy%20Machine%20ID%20(from%20%E2%9A%99%20%E2%86%92%20Licence%20%26%20Account%20in%20the%20app)%3A%0A%0A%5Bpaste%20your%20XXXX-XXXX-XXXX-XXXX%20Machine%20ID%20here%5D%0A%0AThank%20you%21">Subscribe Pro — $59/yr</a>
+      </div>
+
       <ul class="feat">
         <li>Everything in Solo, plus:</li>
         <li><b>Word (.docx)</b> &amp; <b>PowerPoint (.pptx)</b> export</li>
@@ -210,15 +255,27 @@
       </ul>
     </div>
 
-    <!-- TEAM -->
+    <!-- ══ TEAM ══ -->
     <div class="card">
       <div class="tier">Team</div>
       <div class="blurb">For teams sharing templates and standards.</div>
-      <!-- EDIT PRICE -->
-      <div class="price-old">$149 / seat</div>
-      <div class="price"><span class="cur">$</span>99<span class="per"> / seat</span> <span class="price-save">Save $50</span></div>
-      <div class="price-note">one-time · 2–10 seats · launch price</div>
-      <a class="btn btn-primary" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Team%20licence%20purchase%20%E2%80%94%20%2499%2Fseat%20launch%20price&body=Hi%2C%0A%0AI%20would%20like%20to%20purchase%20a%20DocWeave%20Team%20licence%20at%20the%20%2499%2Fseat%20launch%20price.%0A%0ANumber%20of%20seats%3A%20%5Be.g.%205%5D%0A%0AMachine%20IDs%20for%20each%20user%20(from%20%E2%9A%99%20%E2%86%92%20Licence%20%26%20Account%20in%20the%20app)%3A%0A1.%20%5BXXXX-XXXX-XXXX-XXXX%5D%0A2.%20%5BXXXX-XXXX-XXXX-XXXX%5D%0A%0AThank%20you%21">Buy Team — $99/seat</a>
+
+      <!-- EDIT PRICE — LIFETIME -->
+      <div class="lifetime-price">
+        <div class="price-old">$149/seat</div>
+        <div class="price"><span class="cur">$</span>99<span class="per">/seat</span> <span class="price-save">Save $50</span></div>
+        <div class="price-note">one-time · 2–10 seats · launch price · all 1.x updates</div>
+        <a class="btn btn-primary" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Team%20Lifetime%20%E2%80%94%20%2499%2Fseat%20launch%20price&body=Hi%2C%0A%0AI%20would%20like%20to%20purchase%20a%20DocWeave%20Team%20Lifetime%20licence%20at%20%2499%2Fseat%20(launch%20price).%0A%0ANumber%20of%20seats%3A%20%5Be.g.%205%5D%0A%0AMachine%20IDs%20for%20each%20user%20(from%20%E2%9A%99%20%E2%86%92%20Licence%20%26%20Account%20in%20the%20app)%3A%0A1.%20%5BXXXX-XXXX-XXXX-XXXX%5D%0A2.%20%5BXXXX-XXXX-XXXX-XXXX%5D%0A%0AThank%20you%21">Buy Team — $99/seat</a>
+      </div>
+
+      <!-- EDIT PRICE — ANNUAL -->
+      <div class="annual-price">
+        <div class="price-old">$69/seat/yr</div>
+        <div class="price"><span class="cur">$</span>44<span class="per">/seat/yr</span> <span class="price-save">Save $25</span></div>
+        <div class="price-note">billed annually · 2–10 seats · launch price · all major versions</div>
+        <a class="btn btn-primary" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Team%20Annual%20%E2%80%94%20%2444%2Fseat%2Fyr%20launch%20price&body=Hi%2C%0A%0AI%20would%20like%20to%20subscribe%20to%20DocWeave%20Team%20Annual%20at%20%2444%2Fseat%2Fyr%20(launch%20price).%0A%0ANumber%20of%20seats%3A%20%5Be.g.%205%5D%0A%0AMachine%20IDs%20for%20each%20user%20(from%20%E2%9A%99%20%E2%86%92%20Licence%20%26%20Account%20in%20the%20app)%3A%0A1.%20%5BXXXX-XXXX-XXXX-XXXX%5D%0A2.%20%5BXXXX-XXXX-XXXX-XXXX%5D%0A%0AThank%20you%21">Subscribe Team — $44/seat/yr</a>
+      </div>
+
       <ul class="feat">
         <li>Everything in Pro, plus:</li>
         <li>Up to 10 seats</li>
@@ -227,12 +284,12 @@
       </ul>
     </div>
 
-    <!-- ENTERPRISE -->
+    <!-- ══ ENTERPRISE ══ -->
     <div class="card">
       <div class="tier">Enterprise</div>
       <div class="blurb">For organisations with governance requirements.</div>
       <div class="price">Custom</div>
-      <div class="price-note">unlimited seats</div>
+      <div class="price-note">lifetime or annual · unlimited seats</div>
       <a class="btn btn-ghost" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Enterprise%20enquiry">Contact us</a>
       <ul class="feat">
         <li>Everything in Team, plus:</li>
@@ -253,29 +310,30 @@
 
 <section class="faq">
   <h2>Frequently asked questions</h2>
+
   <div class="qa">
-    <h3>How do I pay?</h3>
-    <p>After you email us your Machine ID, we'll reply with a PayPal invoice for the licence amount. Once payment clears, we generate your licence key and email it — usually within a few hours on business days. If you prefer bank transfer or UPI (India), just mention it in your email and we'll arrange it.</p>
+    <h3>Lifetime or Annual — which should I choose?</h3>
+    <p>Choose <b>Lifetime</b> if you want to pay once and use DocWeave indefinitely (including all 1.x updates). Choose <b>Annual</b> if you want to stay on the latest major version as the product evolves — useful for teams who need the newest export formats and content types each year. Annual costs less upfront and you can cancel anytime.</p>
   </div>
   <div class="qa">
-    <h3>Is this a subscription?</h3>
-    <p>No. DocWeave licences are a one-time purchase and include all updates within the same major version (e.g. all 1.x releases). Major upgrades may be offered at an upgrade price.</p>
+    <h3>How do I pay?</h3>
+    <p>After you email us your Machine ID, we'll reply with a PayPal invoice. Once payment clears, we generate your licence key and email it — usually within a few hours on business days. If you prefer bank transfer or UPI (India), just mention it in your email and we'll arrange it.</p>
   </div>
   <div class="qa">
     <h3>Can I try before buying?</h3>
     <p>Yes — every download includes a free, fully-featured 15-day trial. No card required, no account needed. Just download, install, and start building.</p>
   </div>
   <div class="qa">
-    <h3>How do I buy a licence?</h3>
-    <p>Click the buy button for your chosen plan. It will open a pre-filled email. Add your Machine ID (found in the app under ⚙ → Licence &amp; Account) and send it. We'll reply with your licence key — usually within a few hours on business days.</p>
+    <h3>How is a licence delivered?</h3>
+    <p>After we receive your Machine ID, we generate a key cryptographically locked to your machine and email it to you. Open DocWeave → ⚙ → Licence &amp; Account, paste the key and your email address, and click Activate.</p>
   </div>
   <div class="qa">
-    <h3>How is a licence delivered?</h3>
-    <p>After we receive your Machine ID, we generate a key that is cryptographically locked to your machine and email it to you. Open DocWeave → ⚙ → Licence &amp; Account, paste the key and your email address, and click Activate. Done.</p>
+    <h3>What happens when my Annual subscription renews?</h3>
+    <p>We'll email you an invoice before the renewal date. Once paid, we issue a new key valid for another year. If you choose not to renew, your current key stays active until its expiry date — your documents are always yours.</p>
   </div>
   <div class="qa">
     <h3>Can I use the licence on more than one PC?</h3>
-    <p>Each licence key is tied to a single machine (Solo and Pro). If you change your PC or reinstall Windows, email us and we'll reissue the key for your new Machine ID at no charge. The Team plan covers multiple seats — include all Machine IDs when ordering.</p>
+    <p>Each key is tied to a single machine (Solo and Pro). If you change your PC or reinstall Windows, email us and we'll reissue the key for your new Machine ID at no charge. The Team plan covers multiple seats — include all Machine IDs when ordering.</p>
   </div>
   <div class="qa">
     <h3>What's your refund policy?</h3>
@@ -297,6 +355,17 @@
     </div>
   </div>
 </footer>
-<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  function setBilling(mode) {
+    const isAnnual = mode === 'annual';
+    document.body.classList.toggle('show-annual', isAnnual);
+    document.getElementById('btn-annual').classList.toggle('active', isAnnual);
+    document.getElementById('btn-lifetime').classList.toggle('active', !isAnnual);
+    document.getElementById('annual-saving').style.display = isAnnual ? 'inline-block' : 'none';
+  }
+</script>
 </body>
 </html>
