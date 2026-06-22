@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DocWeave — Annotated screenshots into polished training documents</title>
+<meta name="description" content="DocWeave is a Windows desktop app that turns annotated screenshots into professional training documents, SOPs, and runbooks — exported to PDF, HTML, Word, PowerPoint, and more."/>
+<style>
+  :root{
+    --bg:#07090f; --surface:#0d1b2e; --surface2:#16213e;
+    --text:#e6edf6; --muted:#8ba0bd; --border:#1e3050;
+    --primary:#185FA5; --primary-hi:#2479c9; --accent:#EF9F27;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased}
+  a{color:var(--primary-hi); text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1000px; margin:0 auto; padding:0 20px}
+  header{border-bottom:1px solid var(--border)}
+  .nav{display:flex; align-items:center; justify-content:space-between; height:62px}
+  .brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:18px; color:var(--text)}
+  .brand .logo{height:30px; width:auto; border-radius:7px; display:block}
+  .nav-links a{color:var(--muted); margin-left:22px; font-size:14px}
+  .nav-links a:hover{color:var(--text); text-decoration:none}
+  .hero{text-align:center; padding:90px 0 70px}
+  .hero h1{font-size:46px; font-weight:800; letter-spacing:-0.02em; margin-bottom:16px; max-width:760px; margin-left:auto; margin-right:auto}
+  .hero h1 .hl{color:var(--accent)}
+  .hero p{color:var(--muted); font-size:18px; max-width:600px; margin:0 auto 28px}
+  .cta{display:inline-flex; gap:12px; flex-wrap:wrap; justify-content:center}
+  .btn{display:inline-block; padding:13px 26px; border-radius:9px; font-weight:700; font-size:15px; transition:opacity .15s}
+  .btn:hover{text-decoration:none; opacity:.9}
+  .btn-primary{background:var(--primary); color:#fff}
+  .btn-ghost{background:transparent; color:var(--text); border:1px solid var(--border)}
+  .features{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; padding:30px 0 70px}
+  .f{background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:22px}
+  .f .ic{font-size:22px; margin-bottom:8px}
+  .f h3{font-size:16px; font-weight:700; margin-bottom:5px}
+  .f p{color:var(--muted); font-size:14px}
+  footer{border-top:1px solid var(--border); padding:26px 0 40px; color:var(--muted); font-size:13px}
+  .foot{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px}
+  @media (max-width:780px){ .features{grid-template-columns:1fr} .hero h1{font-size:34px} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><img src="docweave.png" class="logo" alt="DocWeave logo"/> DocWeave</a>
+    <nav class="nav-links">
+      <a href="pricing/index.html">Pricing</a>
+      <a href="mailto:support@doc-weave.co.in">Support</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Annotated screenshots into <span class="hl">polished training documents</span></h1>
+    <p>DocWeave is a Windows desktop app for building step-by-step SOPs, runbooks, and training guides — then exporting to PDF, HTML, Word, PowerPoint, Markdown, and more.</p>
+    <div class="cta">
+      <!-- EDIT: point this at your public GitHub release once the repo/release is public -->
+      <a class="btn btn-primary" href="mailto:support@doc-weave.co.in?subject=DocWeave%20download%20request">Download free trial</a>
+      <a class="btn btn-ghost" href="pricing/index.html">See pricing</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="features">
+    <div class="f"><div class="ic">📷</div><h3>Capture &amp; annotate</h3><p>Region, window, and scroll capture with numbered steps, arrows, blur, and redaction.</p></div>
+    <div class="f"><div class="ic">🧩</div><h3>20+ content types</h3><p>Quizzes, video, data tables, checklists, flowcharts, RACI matrices, timelines, and more.</p></div>
+    <div class="f"><div class="ic">📤</div><h3>Export anywhere</h3><p>PDF, interactive HTML, Word, PowerPoint, Markdown, and ZIP — light or dark themes.</p></div>
+    <div class="f"><div class="ic">🔒</div><h3>Local &amp; private</h3><p>Your projects never leave your machine. No cloud account, no tracking.</p></div>
+    <div class="f"><div class="ic">🎨</div><h3>On-brand output</h3><p>Custom logo, colours, and watermarks so every document looks like yours.</p></div>
+    <div class="f"><div class="ic">⚡</div><h3>One-time price</h3><p>Buy once, no subscription. <a href="pricing/index.html">See pricing →</a></p></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>© <span id="yr"></span> DocWeave. All rights reserved.</div>
+    <div><a href="pricing/index.html">Pricing</a> &nbsp;·&nbsp; <a href="mailto:support@doc-weave.co.in">support@doc-weave.co.in</a></div>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>

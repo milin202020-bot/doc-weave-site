@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pricing — DocWeave</title>
+<meta name="description" content="DocWeave pricing — turn annotated screenshots into polished training documents. Solo, Pro, Team, and Enterprise licences."/>
+<style>
+  /* ─────────────────────────────────────────────────────────────
+     EDIT PRICES: search for "EDIT" below. Currency + numbers are the
+     only things you normally need to change. Everything is one file,
+     no external dependencies (loads instantly, no tracking).
+     ───────────────────────────────────────────────────────────── */
+  :root{
+    --bg:#07090f; --surface:#0d1b2e; --surface2:#16213e;
+    --text:#e6edf6; --muted:#8ba0bd; --border:#1e3050;
+    --primary:#185FA5; --primary-hi:#2479c9; --accent:#EF9F27;
+    --good:#16a34a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--primary-hi); text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 20px}
+
+  /* Header */
+  header{border-bottom:1px solid var(--border); background:rgba(7,9,15,0.9); position:sticky; top:0; backdrop-filter:blur(8px); z-index:10}
+  .nav{display:flex; align-items:center; justify-content:space-between; height:62px}
+  .brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:18px; color:var(--text)}
+  .brand .logo{height:30px; width:auto; border-radius:7px; display:block}
+  .nav-links a{color:var(--muted); margin-left:22px; font-size:14px}
+  .nav-links a:hover{color:var(--text); text-decoration:none}
+
+  /* Hero */
+  .hero{text-align:center; padding:64px 0 28px}
+  .hero h1{font-size:40px; font-weight:800; letter-spacing:-0.02em; margin-bottom:12px}
+  .hero p{color:var(--muted); font-size:17px; max-width:620px; margin:0 auto}
+  .trial-badge{display:inline-block; margin-top:18px; background:rgba(24,95,165,0.15); border:1px solid var(--primary); color:#9cc3ee; border-radius:999px; padding:7px 16px; font-size:13px; font-weight:600}
+
+  /* Pricing grid */
+  .grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; padding:34px 0 10px; align-items:start}
+  .card{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:26px 22px; display:flex; flex-direction:column; min-height:520px; position:relative}
+  .card.popular{border-color:var(--accent); box-shadow:0 0 0 1px var(--accent), 0 12px 40px rgba(239,159,39,0.12)}
+  .pop-tag{position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--accent); color:#1a1208; font-size:11px; font-weight:800; letter-spacing:0.5px; text-transform:uppercase; padding:4px 12px; border-radius:999px}
+  .tier{font-size:18px; font-weight:700}
+  .blurb{color:var(--muted); font-size:13px; margin:6px 0 16px; min-height:38px}
+  .price{font-size:34px; font-weight:800; letter-spacing:-0.02em}
+  .price .cur{font-size:18px; font-weight:700; color:var(--muted); vertical-align:super}
+  .price .per{font-size:13px; font-weight:600; color:var(--muted)}
+  .price-note{color:var(--muted); font-size:12px; margin-top:4px; min-height:18px}
+  .btn{display:block; text-align:center; margin:20px 0 18px; padding:11px 14px; border-radius:8px; font-weight:700; font-size:14px; cursor:pointer; transition:opacity .15s}
+  .btn:hover{text-decoration:none; opacity:0.9}
+  .btn-primary{background:var(--primary); color:#fff}
+  .btn-accent{background:var(--accent); color:#1a1208}
+  .btn-ghost{background:transparent; color:var(--text); border:1px solid var(--border)}
+  .feat{list-style:none; display:flex; flex-direction:column; gap:9px; font-size:13.5px}
+  .feat li{display:flex; gap:9px; align-items:flex-start; color:#cdd9e8}
+  .feat li::before{content:"✓"; color:var(--good); font-weight:800; flex-shrink:0}
+  .feat li.dim{color:var(--muted)}
+  .feat li.dim::before{content:"—"; color:var(--border)}
+  .feat .head{font-weight:700; color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:0.6px; margin-top:6px}
+  .feat .head::before{content:""}
+
+  /* FAQ + footer */
+  .faq{padding:46px 0 10px; max-width:760px; margin:0 auto}
+  .faq h2{font-size:24px; font-weight:800; text-align:center; margin-bottom:22px}
+  .qa{border-top:1px solid var(--border); padding:16px 0}
+  .qa h3{font-size:15px; font-weight:700; margin-bottom:5px}
+  .qa p{color:var(--muted); font-size:14px}
+  footer{border-top:1px solid var(--border); margin-top:48px; padding:26px 0 40px; color:var(--muted); font-size:13px}
+  .foot{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px}
+
+  @media (max-width:880px){
+    .grid{grid-template-columns:1fr 1fr}
+    .hero h1{font-size:32px}
+  }
+  @media (max-width:560px){
+    .grid{grid-template-columns:1fr}
+    .nav-links a:first-child{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="../index.html"><img src="../docweave.png" class="logo" alt="DocWeave logo"/> DocWeave</a>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="index.html">Pricing</a>
+      <a href="mailto:support@doc-weave.co.in">Support</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Simple, one-time pricing</h1>
+    <p>Turn annotated screenshots into polished training documents, SOPs, and runbooks. Pay once — no subscription. Includes all 1.x updates.</p>
+    <div class="trial-badge">✨ Every download starts with a free, fully-featured 30-day trial</div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="grid">
+
+    <!-- SOLO -->
+    <div class="card">
+      <div class="tier">Solo</div>
+      <div class="blurb">For individuals creating professional step-by-step guides.</div>
+      <!-- EDIT PRICE -->
+      <div class="price"><span class="cur">$</span>99</div>
+      <div class="price-note">one-time · 1 seat</div>
+      <a class="btn btn-primary" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Solo%20licence">Get Solo</a>
+      <ul class="feat">
+        <li>HTML, PDF, Markdown &amp; ZIP export</li>
+        <li>All 20+ content types (quizzes, video, tables, flowcharts…)</li>
+        <li>Annotations: boxes, arrows, blur, redaction, spotlight</li>
+        <li>Step library, find &amp; replace, bulk import</li>
+        <li>Global screen capture &amp; SOP recorder</li>
+      </ul>
+    </div>
+
+    <!-- PRO -->
+    <div class="card popular">
+      <div class="pop-tag">Most popular</div>
+      <div class="tier">Pro</div>
+      <div class="blurb">For professionals who deliver to clients and teams.</div>
+      <!-- EDIT PRICE -->
+      <div class="price"><span class="cur">$</span>249</div>
+      <div class="price-note">one-time · 1 seat</div>
+      <a class="btn btn-accent" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Pro%20licence">Get Pro</a>
+      <ul class="feat">
+        <li>Everything in Solo, plus:</li>
+        <li><b>Word (.docx)</b> &amp; <b>PowerPoint (.pptx)</b> export</li>
+        <li>Export Profiles (one-click multi-format)</li>
+        <li>Custom branding &amp; logo</li>
+        <li>Draft watermarks</li>
+        <li>SCORM export &amp; usage analytics</li>
+      </ul>
+    </div>
+
+    <!-- TEAM -->
+    <div class="card">
+      <div class="tier">Team</div>
+      <div class="blurb">For teams sharing templates and standards.</div>
+      <!-- EDIT PRICE -->
+      <div class="price"><span class="cur">$</span>149<span class="per"> / seat</span></div>
+      <div class="price-note">one-time · 2–10 seats</div>
+      <a class="btn btn-primary" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Team%20licence%20(seats%3F)">Get Team</a>
+      <ul class="feat">
+        <li>Everything in Pro, plus:</li>
+        <li>Up to 10 seats</li>
+        <li>Shared templates across the team</li>
+        <li>Volume licensing</li>
+      </ul>
+    </div>
+
+    <!-- ENTERPRISE -->
+    <div class="card">
+      <div class="tier">Enterprise</div>
+      <div class="blurb">For organisations with governance requirements.</div>
+      <div class="price">Custom</div>
+      <div class="price-note">unlimited seats</div>
+      <a class="btn btn-ghost" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Enterprise%20enquiry">Contact us</a>
+      <ul class="feat">
+        <li>Everything in Team, plus:</li>
+        <li>Unlimited seats</li>
+        <li>SSO integration</li>
+        <li>Audit log</li>
+        <li>Priority support</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section class="faq">
+  <h2>Frequently asked questions</h2>
+  <div class="qa">
+    <h3>Is this a subscription?</h3>
+    <p>No. DocWeave licences are a one-time purchase and include all updates within the same major version (e.g. all 1.x releases). Major upgrades may be offered at an upgrade price.</p>
+  </div>
+  <div class="qa">
+    <h3>Can I try before buying?</h3>
+    <p>Yes — every download includes a free, fully-featured 30-day trial. No card required.</p>
+  </div>
+  <div class="qa">
+    <h3>How is a licence delivered?</h3>
+    <p>After purchase you'll receive a licence key by email. It activates DocWeave on your machine — open ⚙ → Licence &amp; Account and paste it in.</p>
+  </div>
+  <div class="qa">
+    <h3>What's your refund policy?</h3>
+    <p>14-day money-back guarantee. If DocWeave doesn't work for you, email <a href="mailto:support@doc-weave.co.in">support@doc-weave.co.in</a> within 14 days for a full refund.</p>
+  </div>
+  <div class="qa">
+    <h3>Do you store my documents?</h3>
+    <p>No. DocWeave is a local desktop app — your projects, screenshots, and exports stay on your machine. See the in-app Privacy Policy for details.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>© <span id="yr"></span> DocWeave. All rights reserved.</div>
+    <div>
+      <a href="../index.html">Home</a> &nbsp;·&nbsp;
+      <a href="index.html">Pricing</a> &nbsp;·&nbsp;
+      <a href="mailto:support@doc-weave.co.in">support@doc-weave.co.in</a>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
