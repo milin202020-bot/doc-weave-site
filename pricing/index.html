@@ -41,8 +41,19 @@
   .hero p{color:var(--muted); font-size:17px; max-width:620px; margin:0 auto}
   .trial-badge{display:inline-block; margin-top:18px; background:rgba(24,95,165,0.15); border:1px solid var(--primary); color:#9cc3ee; border-radius:999px; padding:7px 16px; font-size:13px; font-weight:600}
 
+  /* How it works */
+  .how{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:28px 32px; margin:0 0 36px; display:flex; gap:0; align-items:flex-start; flex-wrap:wrap}
+  .how-title{font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:18px; width:100%}
+  .step{flex:1; min-width:180px; display:flex; gap:12px; align-items:flex-start; padding:0 16px 0 0}
+  .step:last-child{padding-right:0}
+  .step-num{width:28px; height:28px; border-radius:50%; background:var(--primary); color:#fff; font-size:13px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px}
+  .step-body h4{font-size:14px; font-weight:700; margin-bottom:3px}
+  .step-body p{font-size:13px; color:var(--muted); line-height:1.5}
+  .step-arrow{color:var(--border); font-size:20px; padding-top:4px; flex-shrink:0; align-self:center}
+  @media(max-width:680px){.step{min-width:100%; padding:0 0 16px}.step-arrow{display:none}}
+
   /* Pricing grid */
-  .grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; padding:34px 0 10px; align-items:start}
+  .grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; padding:0 0 10px; align-items:start}
   .card{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:26px 22px; display:flex; flex-direction:column; min-height:520px; position:relative}
   .card.popular{border-color:var(--accent); box-shadow:0 0 0 1px var(--accent), 0 12px 40px rgba(239,159,39,0.12)}
   .pop-tag{position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--accent); color:#1a1208; font-size:11px; font-weight:800; letter-spacing:0.5px; text-transform:uppercase; padding:4px 12px; border-radius:999px}
@@ -64,6 +75,10 @@
   .feat li.dim::before{content:"—"; color:var(--border)}
   .feat .head{font-weight:700; color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:0.6px; margin-top:6px}
   .feat .head::before{content:""}
+
+  /* Machine ID callout */
+  .mid-note{background:rgba(24,95,165,0.08); border:1px solid var(--border); border-radius:10px; padding:14px 18px; margin:28px 0 4px; font-size:13px; color:var(--muted); line-height:1.6}
+  .mid-note strong{color:var(--text)}
 
   /* FAQ + footer */
   .faq{padding:46px 0 10px; max-width:760px; margin:0 auto}
@@ -101,11 +116,48 @@
   <div class="wrap">
     <h1>Simple, one-time pricing</h1>
     <p>Turn annotated screenshots into polished training documents, SOPs, and runbooks. Pay once — no subscription. Includes all 1.x updates.</p>
-    <div class="trial-badge">✨ Every download starts with a free, fully-featured 30-day trial</div>
+    <div class="trial-badge">✨ Every download starts with a free, fully-featured 15-day trial — no card, no signup</div>
   </div>
 </section>
 
 <section class="wrap">
+
+  <!-- How it works -->
+  <div class="how">
+    <div class="how-title">How it works</div>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>Download &amp; try</h4>
+        <p>Download DocWeave and use every feature free for 15 days. No account needed.</p>
+      </div>
+    </div>
+    <div class="step-arrow">›</div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>Buy &amp; send your Machine ID</h4>
+        <p>Pick a plan below. Email us with your Machine ID — find it in the app under <strong>⚙ → Licence &amp; Account</strong>. It looks like <code style="font-size:12px;color:#9cc3ee">A3F7-B2C1-9D4E-F823</code>.</p>
+      </div>
+    </div>
+    <div class="step-arrow">›</div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>Receive your key</h4>
+        <p>We generate a licence key locked to your machine and email it to you — usually within a few hours.</p>
+      </div>
+    </div>
+    <div class="step-arrow">›</div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>Activate</h4>
+        <p>Open <strong>⚙ → Licence &amp; Account</strong>, paste the key, and you're fully licensed.</p>
+      </div>
+    </div>
+  </div>
+
   <div class="grid">
 
     <!-- SOLO -->
@@ -115,7 +167,7 @@
       <!-- EDIT PRICE -->
       <div class="price"><span class="cur">$</span>99</div>
       <div class="price-note">one-time · 1 seat</div>
-      <a class="btn btn-primary" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Solo%20licence">Get Solo</a>
+      <a class="btn btn-primary" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Solo%20licence%20purchase&body=Hi%2C%0A%0AI%20would%20like%20to%20purchase%20a%20DocWeave%20Solo%20licence.%0A%0AMy%20Machine%20ID%20(from%20%E2%9A%99%20%E2%86%92%20Licence%20%26%20Account%20in%20the%20app)%3A%0A%0A%5Bpaste%20your%20XXXX-XXXX-XXXX-XXXX%20Machine%20ID%20here%5D%0A%0AThank%20you%21">Buy Solo — $99</a>
       <ul class="feat">
         <li>HTML, PDF, Markdown &amp; ZIP export</li>
         <li>All 20+ content types (quizzes, video, tables, flowcharts…)</li>
@@ -133,7 +185,7 @@
       <!-- EDIT PRICE -->
       <div class="price"><span class="cur">$</span>249</div>
       <div class="price-note">one-time · 1 seat</div>
-      <a class="btn btn-accent" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Pro%20licence">Get Pro</a>
+      <a class="btn btn-accent" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Pro%20licence%20purchase&body=Hi%2C%0A%0AI%20would%20like%20to%20purchase%20a%20DocWeave%20Pro%20licence.%0A%0AMy%20Machine%20ID%20(from%20%E2%9A%99%20%E2%86%92%20Licence%20%26%20Account%20in%20the%20app)%3A%0A%0A%5Bpaste%20your%20XXXX-XXXX-XXXX-XXXX%20Machine%20ID%20here%5D%0A%0AThank%20you%21">Buy Pro — $249</a>
       <ul class="feat">
         <li>Everything in Solo, plus:</li>
         <li><b>Word (.docx)</b> &amp; <b>PowerPoint (.pptx)</b> export</li>
@@ -151,7 +203,7 @@
       <!-- EDIT PRICE -->
       <div class="price"><span class="cur">$</span>149<span class="per"> / seat</span></div>
       <div class="price-note">one-time · 2–10 seats</div>
-      <a class="btn btn-primary" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Team%20licence%20(seats%3F)">Get Team</a>
+      <a class="btn btn-primary" href="mailto:support@doc-weave.co.in?subject=DocWeave%20Team%20licence%20purchase&body=Hi%2C%0A%0AI%20would%20like%20to%20purchase%20a%20DocWeave%20Team%20licence.%0A%0ANumber%20of%20seats%3A%20%5Be.g.%205%5D%0A%0AMachine%20IDs%20for%20each%20user%20(from%20%E2%9A%99%20%E2%86%92%20Licence%20%26%20Account%20in%20the%20app)%3A%0A1.%20%5BXXXX-XXXX-XXXX-XXXX%5D%0A2.%20%5BXXXX-XXXX-XXXX-XXXX%5D%0A%0AThank%20you%21">Buy Team — $149/seat</a>
       <ul class="feat">
         <li>Everything in Pro, plus:</li>
         <li>Up to 10 seats</li>
@@ -177,6 +229,11 @@
     </div>
 
   </div>
+
+  <div class="mid-note">
+    <strong>Where do I find my Machine ID?</strong> Open DocWeave → click the ⚙ gear icon → <em>Licence &amp; Account</em>. Your Machine ID is shown at the top — a code like <code style="color:#9cc3ee">A3F7-B2C1-9D4E-F823</code>. Each licence key is cryptographically locked to that machine; it cannot be used on another PC.
+  </div>
+
 </section>
 
 <section class="faq">
@@ -187,15 +244,23 @@
   </div>
   <div class="qa">
     <h3>Can I try before buying?</h3>
-    <p>Yes — every download includes a free, fully-featured 30-day trial. No card required.</p>
+    <p>Yes — every download includes a free, fully-featured 15-day trial. No card required, no account needed. Just download, install, and start building.</p>
+  </div>
+  <div class="qa">
+    <h3>How do I buy a licence?</h3>
+    <p>Click the buy button for your chosen plan. It will open a pre-filled email. Add your Machine ID (found in the app under ⚙ → Licence &amp; Account) and send it. We'll reply with your licence key — usually within a few hours on business days.</p>
   </div>
   <div class="qa">
     <h3>How is a licence delivered?</h3>
-    <p>After purchase you'll receive a licence key by email. It activates DocWeave on your machine — open ⚙ → Licence &amp; Account and paste it in.</p>
+    <p>After we receive your Machine ID, we generate a key that is cryptographically locked to your machine and email it to you. Open DocWeave → ⚙ → Licence &amp; Account, paste the key and your email address, and click Activate. Done.</p>
+  </div>
+  <div class="qa">
+    <h3>Can I use the licence on more than one PC?</h3>
+    <p>Each licence key is tied to a single machine (Solo and Pro). If you change your PC or reinstall Windows, email us and we'll reissue the key for your new Machine ID at no charge. The Team plan covers multiple seats — include all Machine IDs when ordering.</p>
   </div>
   <div class="qa">
     <h3>What's your refund policy?</h3>
-    <p>14-day money-back guarantee. If DocWeave doesn't work for you, email <a href="mailto:support@doc-weave.co.in">support@doc-weave.co.in</a> within 14 days for a full refund.</p>
+    <p>14-day money-back guarantee. If DocWeave doesn't work for you, email <a href="mailto:support@doc-weave.co.in">support@doc-weave.co.in</a> within 14 days of purchase for a full refund.</p>
   </div>
   <div class="qa">
     <h3>Do you store my documents?</h3>
