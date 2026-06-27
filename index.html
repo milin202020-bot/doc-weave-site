@@ -95,6 +95,20 @@
   .ex-name{font-size:13px;font-weight:700}
   .ex-desc{font-size:11px;color:var(--muted);text-align:center}
 
+  /* ── LIVE EXAMPLE ── */
+  .example{padding:0 0 70px}
+  .demo-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;max-width:780px;margin:0 auto;box-shadow:0 12px 40px rgba(0,0,0,0.35)}
+  .demo-bar{display:flex;align-items:center;gap:7px;padding:11px 16px;background:var(--surface2);border-bottom:1px solid var(--border)}
+  .demo-bar .dot{width:11px;height:11px;border-radius:50%;display:inline-block}
+  .demo-bar .dot.r{background:#ff5f56}.demo-bar .dot.y{background:#ffbd2e}.demo-bar .dot.g{background:#27c93f}
+  .demo-url{margin-left:10px;font-size:12px;color:var(--muted);font-family:ui-monospace,Menlo,Consolas,monospace}
+  .demo-body{padding:34px 32px 30px;text-align:center}
+  .demo-ic{font-size:34px;margin-bottom:12px}
+  .demo-body h3{font-size:20px;font-weight:800;margin-bottom:8px}
+  .demo-body p{color:var(--muted);font-size:15px;max-width:520px;margin:0 auto 22px;line-height:1.6}
+  .demo-downloads{margin-top:18px;font-size:13px;color:var(--muted)}
+  .demo-downloads a{font-weight:600}
+
   /* ── SECURITY / PRIVACY ── */
   .trust{padding:0 0 70px}
   .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -139,6 +153,7 @@
   <div class="wrap nav">
     <a class="brand" href="index.html"><img src="docweave.png" class="logo" alt="DocWeave logo"/> DocWeave</a>
     <nav class="nav-links">
+      <a href="index.html#example">Example</a>
       <a href="pricing/index.html">Pricing</a>
       <a href="whats-new/index.html">What's New</a>
       <a href="mailto:support@doc-weave.co.in">Support</a>
@@ -212,6 +227,36 @@
   </div>
 </section>
 
+<!-- ── LIVE EXAMPLE ── -->
+<section class="example" id="example">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>See a real document made with DocWeave</h2>
+      <p>This “Getting Started” guide was built entirely in DocWeave and exported untouched — open the live, interactive version or grab it as a PDF.</p>
+    </div>
+    <div class="demo-card">
+      <div class="demo-bar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="demo-url">getting-started.html — interactive walkthrough</span>
+      </div>
+      <div class="demo-body">
+        <div class="demo-ic">🌐</div>
+        <h3>Interactive HTML walkthrough</h3>
+        <p>Click through annotated screenshots, numbered steps, and rich content blocks — exactly what your readers see. Fully offline, opens in any browser.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="examples/getting-started-dark.html" target="_blank" rel="noopener">▶ View live example</a>
+          <a class="btn btn-ghost" href="examples/getting-started-light.html" target="_blank" rel="noopener">Light theme version</a>
+        </div>
+        <div class="demo-downloads">
+          Prefer a file? Download the same document as PDF —
+          <a href="examples/getting-started-dark.pdf" target="_blank" rel="noopener">Dark</a> ·
+          <a href="examples/getting-started-light.pdf" target="_blank" rel="noopener">Light</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── FEATURES ── -->
 <section class="features">
   <div class="wrap">
@@ -246,7 +291,7 @@
 
       <div class="f">
         <div class="ic">🧩</div>
-        <h3>20+ content block types</h3>
+        <h3>27 content block types</h3>
         <p>Go beyond screenshots. Build rich, interactive documents with specialised content blocks.</p>
         <ul>
           <li>Quizzes, checklists, data tables, tabbed panels</li>
@@ -299,7 +344,7 @@
 <section class="content-types">
   <div class="wrap">
     <div class="sec-head">
-      <h2>20+ content block types in one document</h2>
+      <h2>27 content block types in one document</h2>
       <p>Mix and match any content type in a single SOP or training guide.</p>
     </div>
     <div class="ct-grid">
