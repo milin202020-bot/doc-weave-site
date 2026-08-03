@@ -176,6 +176,7 @@
       <a class="btn btn-ghost" href="pricing/index.html">See pricing →</a>
     </div>
     <div class="hero-sub">Free for 15 days · No card · No account · Windows 10/11</div>
+    <div class="hero-sub" id="download-counter" style="margin-top:8px;font-size:13px;color:#8ba0bd;display:none">⬇️ <strong style="color:#e6edf6" id="download-count-num">0</strong> downloads so far</div>
 
     <div class="hero-sub" style="margin-top:8px;font-size:12px;color:#5a7a9a">Windows may show a SmartScreen warning — click <strong style="color:#8ba0bd">More info → Run anyway</strong>. The app is safe; code-signing is on our roadmap.</div>
     <div class="hero-sub" style="margin-top:4px;font-size:12px;color:#5a7a9a">For best results, right-click the installer and select <strong style="color:#8ba0bd">Run as administrator</strong>.</div>
@@ -545,5 +546,35 @@
   gtag('config','G-P18HL3M52P');
 </script>
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+<!-- Download counter: sums GitHub release-asset download counts (public API, no auth needed) -->
+<script>
+(function(){
+  var CACHE_KEY = 'dw_dl_count', CACHE_TTL = 60 * 60 * 1000; // 1 hour
+  function render(n){
+    var el = document.getElementById('download-counter');
+    var num = document.getElementById('download-count-num');
+    if (!el || !num || !n) return;
+    num.textContent = n.toLocaleString();
+    el.style.display = '';
+  }
+  try {
+    var cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+    if (cached && (Date.now() - cached.t) < CACHE_TTL) { render(cached.n); return; }
+  } catch(e){}
+  fetch('https://api.github.com/repos/milin202020-bot/doc-weave-site/releases')
+    .then(function(r){ return r.ok ? r.json() : []; })
+    .then(function(releases){
+      var total = 0;
+      (releases || []).forEach(function(rel){
+        (rel.assets || []).forEach(function(a){
+          if (/DocWeave-Setup/i.test(a.name)) total += (a.download_count || 0);
+        });
+      });
+      try { localStorage.setItem(CACHE_KEY, JSON.stringify({ n: total, t: Date.now() })); } catch(e){}
+      render(total);
+    })
+    .catch(function(){});
+})();
+</script>
 </body>
 </html>
